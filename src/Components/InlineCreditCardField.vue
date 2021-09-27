@@ -178,6 +178,12 @@ export default {
                             vnode.context.focusNextElement(el);
                         }
 
+                        if (event.keyCode === 13) {
+                          vnode.context.card.submit = true
+                        } else {
+                          vnode.context.card.submit = false
+                        }
+
                         vnode.context.$emit('input', vnode.context.card);
 
                         if (vnode.context.hasChanged()) {
@@ -242,7 +248,8 @@ export default {
                 number: this.$attrs.number || '',
                 expiration: this.$attrs.expiration || '',
                 cvc: this.$attrs.cvc || '',
-                postalCode: this.$attrs.postalCode || ''
+                postalCode: this.$attrs.postalCode || '',
+                submit: false
             };
         },
 
@@ -419,7 +426,8 @@ export default {
                 number: null,
                 expiration: null,
                 cvc: null,
-                postalCode: null
+                postalCode: null,
+                submit: false
             }
         };
     }
