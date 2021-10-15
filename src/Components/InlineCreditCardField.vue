@@ -318,7 +318,7 @@ export default {
         },
 
         validateCvc(value) {
-            return Payment.fns.validateCardCVC(value);
+            return Payment.fns.validateCardCVC(value, this.card.brand);
         },
 
         validateNumber(value) {
